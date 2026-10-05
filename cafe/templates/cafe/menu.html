@@ -1,0 +1,36 @@
+{%extends 'cafe/base.html' %}
+
+{% block content %}
+
+<h1 class="page-title">Our Menu</h1>
+
+{% regroup items by category as category_list %}
+
+{% for category in category_list %}
+    <h2 class="category-title">{{ category.grouper }}</h2>
+    <div class="menu-grid">
+        {% for item in category.list %}
+            <div class="menu-card">
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}" class="menu-image">
+                {% endif %}
+                <h3 class="menu-item-title">{{ item.name }}</h3>
+                <p class="description">{{ item.description }}</p>
+                <p class="price">Ksh {{ item.price }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endfor %}
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
