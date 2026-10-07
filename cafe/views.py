@@ -7,7 +7,7 @@ from .forms import ContactForm
 
 def home(request):
     items = MenuItem.objects.all()
-    return render(request, 'cafe/home.html', {'items': items})
+    return render(request, 'cafe/index.html', {'items': items})
 def menu(request):
     items= MenuItem.objects.all().order_by('category')
     return render(request, 'cafe/menu.html', {'items':items})
